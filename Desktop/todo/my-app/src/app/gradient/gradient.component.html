@@ -1,0 +1,114 @@
+<div class="grid12">
+
+    <div>
+
+        <div class="direction">
+            <div class="container">
+                <div class="row justify-content-sm-center">
+                    <div class="direction-col">
+                        <input type="radio" [(ngModel)]="direction" value="to right" name="direction" id="right">
+                        <label for="right" style="color: black">To right</label>
+                    </div>
+
+                    <div class="direction-col">
+                        <input type="radio" [(ngModel)]="direction" value="to left" name="direction" id="Left">
+                        <label for="Left" style="color: black">To Left</label>
+                    </div>
+
+                    <div class="direction-col">
+                        <input type="radio" [(ngModel)]="direction" value="to bottom" name="direction" id="bottom">
+                        <label for="bottom" style="color: black">To bottom</label>
+                    </div>
+
+                    <div class="direction-col ">
+                        <input type="radio" [(ngModel)]="direction" value="to right bottom" name="direction" id="right bottom">
+                        <label for="right bottom" style="color: black">to right bottom</label>
+                    </div>
+
+                    <div class="direction-col ">
+                        <input type="radio" [(ngModel)]="direction" value="to right top" name="direction" id="to right top">
+                        <label for="to right top" style="color: black">To Left</label>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <div class="grid1">
+        <div class="grid2">
+
+
+            <div class="grid3">
+                <div class="button-title">
+                    <button class="my-button">Title</button>
+                </div>
+                <div class="button-title">
+                    <button class="my-button">Body</button>
+                </div>
+                <div class="button-title">
+                    <button class="my-button">Icon</button>
+                </div>
+                <div></div>
+            </div>
+
+            <div class="grid3  ">
+
+                <div> <input type="text" class="my-input" [value]="title" [(ngModel)]="title" placeholder="Enter Your Title Here"></div>
+                <div> <textarea type="text" class="my-input" [value]="body" [(ngModel)]="body" placeholder="Enter Your Content Here.."></textarea></div>
+                <div>
+                    <img class="my-img" src="https://image.flaticon.com/icons/png/128/1807/1807745.png" (click)="fun1('https://image.flaticon.com/icons/png/128/1807/1807745.png')">
+                    <img class="my-img" src="https://image.flaticon.com/icons/svg/1809/1809222.svg" (click)="fun1('https://image.flaticon.com/icons/svg/1809/1809222.svg')">
+                    <img class="my-img" src="https://image.flaticon.com/icons/png/128/1753/1753253.png" (click)="fun3('https://image.flaticon.com/icons/png/128/1753/1753253.png')">
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="grid4">
+            <div>
+                <div class="col col-lg-2">
+
+                    <div class="form-group">
+                        <input type="text" [(colorPicker)]="color1" class="form-control c8" [cpPresetColors]="['#7B1FA2', '#039BE5', '#FF5252', '#D32F2F', '#283593']" [cpPosition]="'left'" [style.background]="color1" [cpAlphaChannel]="'always'" [cpOutputFormat]="'hex'" [value]="color1">
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="jumbotron c1 grid7" [style.background-image]="'linear-gradient(' + this.direction +',' + this.color1 + ',' + this.color2 + ')'">
+
+
+                <div class="grid8 ">
+                    <div><img class="c11" src={{icon}}></div>
+                    <div>{{title}}</div>
+                </div>
+
+
+                <div><span class="my-body">{{body}}</span></div>
+
+            </div>
+            <div>
+
+                <div class="col col-lg-2">
+                    <div class="form-group">
+                        <input type="text" [(colorPicker)]="color2" class="form-control c8" [cpPresetColors]="['#7B1FA2', '#039BE5', '#FF5252', '#D32F2F', '#283593']" [cpPosition]="'left'" [style.background]="color2" [cpAlphaChannel]="'always'" [cpOutputFormat]="'hex'" [value]="color2">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
