@@ -64,7 +64,7 @@
 .grid12 {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: 100px auto auto 1fr;
     height: calc(100vh - .5px);
     margin-top: 40px;
 }
@@ -104,8 +104,9 @@
 }
 
 .c8 {
-    max-height: 20px;
-    max-width: 120px;
+    max-height: 50px;
+    max-width: 80px;
+    font-size: 10px;
     background-color: white;
 }
 
@@ -118,13 +119,19 @@
 }
 
 div {
-    color: white;
+    color: black;
     font-size: 20px;
     text-align: center;
 }
 
 body {
     background-color: white;
+}
+
+.text-left {
+    text-align: left;
+    font-size: 20px;
+    font-family: -webkit-body;
 }
 
 button {
@@ -191,4 +198,10 @@ mat-form-field {
 .inp {
     display: inline-block;
     margin: 30px;
+}
+
+.titel {
+    color: black;
+    font-size: 30px;
+    font-family: monospace;
 }

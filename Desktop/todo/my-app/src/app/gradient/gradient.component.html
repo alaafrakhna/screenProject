@@ -1,4 +1,9 @@
+<a href="https://www.freepik.com/free-photos-vectors/background"></a>
 <div class="grid12">
+
+    <div>
+        <h3>Gradient Generator</h3>
+    </div>
 
     <div>
 
@@ -41,7 +46,7 @@
 
         <div class="form-group  inp">
             <label for="color1" style="color: black ; font-size: 15px">Color One</label>
-            <input type="text" [(colorPicker)]="color1" class="form-control c8" [cpPresetColors]="['#7B1FA2', '#039BE5', '#FF5252', '#D32F2F', '#283593']" [cpPosition]="'left'" [style.background]="color1" [cpAlphaChannel]="'always'" [cpOutputFormat]="'hex'" [value]="color1">
+            <input type="text" [(colorPicker)]="color1" class="c8" [cpPresetColors]="['#7B1FA2', '#039BE5', '#FF5252', '#D32F2F', '#283593']" [cpPosition]="'left'" [style.background]="color1" [cpAlphaChannel]="'always'" [cpOutputFormat]="'hex'" [value]="color1">
         </div>
 
         <div class="form-group  inp">
@@ -79,7 +84,7 @@
                 <div>
                     <img class="my-img" src="https://image.flaticon.com/icons/png/128/1807/1807745.png" (click)="fun1('https://image.flaticon.com/icons/png/128/1807/1807745.png')">
                     <img class="my-img" src="https://image.flaticon.com/icons/svg/1809/1809222.svg" (click)="fun1('https://image.flaticon.com/icons/svg/1809/1809222.svg')">
-                    <img class="my-img" src="https://image.flaticon.com/icons/png/128/1753/1753253.png" (click)="fun3('https://image.flaticon.com/icons/png/128/1753/1753253.png')">
+                    <img class="my-img" src="https://image.flaticon.com/icons/png/128/1753/1753253.png" (click)="fun1('https://image.flaticon.com/icons/png/128/1753/1753253.png')">
                 </div>
 
 
@@ -90,16 +95,16 @@
 
         <div class="grid4">
 
-            <div class="jumbotron c1 grid7" [style.background-image]="'linear-gradient(' + this.direction +',' + this.color1 + ',' + this.color2 + ')'">
+            <div class="jumbotron c1 grid7 " [style.background-image]="'linear-gradient(' + this.direction +',' + this.color1 + ',' + this.color2 + ')'">
 
 
                 <div class="grid8 ">
                     <div><img src={{icon}} style="max-width:60px ;max-height: 60px"></div>
-                    <div>{{title}}</div>
+                    <div class="titel">{{title}}</div>
                 </div>
 
 
-                <div><span class="my-body">{{body}}</span></div>
+                <div class="text-left"><span class="my-body">{{body}}</span></div>
 
             </div>
 

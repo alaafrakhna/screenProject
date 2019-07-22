@@ -73,5 +73,7 @@ img.my-img {
 }
 
 .my-body {
-    background: red;
+    overflow: hidden;
+    color: black;
+    text-align: left;
 }
