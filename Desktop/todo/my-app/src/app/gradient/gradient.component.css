@@ -64,7 +64,7 @@
 .grid12 {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 100px auto auto 1fr;
+    grid-template-rows: 50px auto auto 1fr;
     height: calc(100vh - .5px);
     margin-top: 40px;
 }
