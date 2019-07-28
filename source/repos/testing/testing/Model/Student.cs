@@ -12,6 +12,9 @@ namespace testing.Model
         public string Name { get; set; }
         public int Num { get; set; }
         public string Specialization { get; set; }
+        public Course MyCourse { get; set; }
+        public int CourseId { get; set; }
+
 
     }
 }
