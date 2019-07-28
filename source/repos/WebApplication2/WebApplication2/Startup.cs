@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -42,6 +43,8 @@ namespace WebApplication2
             services.AddScoped<IDriverRepo,DriverRepo>();
 
             services.AddScoped<ICarRepo,CarRepo>();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
            
 
         }

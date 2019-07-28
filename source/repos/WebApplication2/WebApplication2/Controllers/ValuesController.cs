@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication2.Helper;
 using WebApplication2.Interfaces;
 using WebApplication2.Models;
+using WebApplication2.ViewModels;
 
 namespace WebApplication2.Controllers
 {
@@ -17,18 +19,22 @@ namespace WebApplication2.Controllers
 
         private ICarRepo _ICarRepo;
 
-        public ValuesController(ICarRepo iCarRepo)
+        private IMapper _mapper;
+        public ValuesController(ICarRepo iCarRepo,IMapper mapper)
         {
 
             _ICarRepo = iCarRepo;
-
+            _mapper = mapper;
         }
 
         // GET api/values
         [HttpGet]
-        public List<Car> Get()
+        public List<CarViewModel> Get()
         {
-            return _ICarRepo.getAll();
+            List < Car > carList = _ICarRepo.getAll();
+            List<CarViewModel> carviewmodel = _mapper.Map<List<CarViewModel>>(carList);
+
+            return carviewmodel;
         }
 
         // get api/values/5
