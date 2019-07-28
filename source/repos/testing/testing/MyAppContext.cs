@@ -18,5 +18,26 @@ namespace testing
 
 
 
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<Student>(builder =>
+            {
+                builder.HasOne<Course>(c => c.MyCourse)
+                    .WithMany(c => c.Students)
+                    .HasForeignKey(c => c.CourseId);
+
+                builder.HasKey(c => c.Id);
+                builder.Property(c => c.Name).IsRequired();
+            });
+
+
+            base.OnModelCreating(modelBuilder);
+
+        }
+
+
+
     }
 }

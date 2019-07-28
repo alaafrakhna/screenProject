@@ -43,7 +43,10 @@ namespace testing.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name");
+                    b.Property<int>("CourseId");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.Property<int>("Num");
 
@@ -51,7 +54,17 @@ namespace testing.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CourseId");
+
                     b.ToTable("Students");
+                });
+
+            modelBuilder.Entity("testing.Model.Student", b =>
+                {
+                    b.HasOne("testing.Model.Course", "MyCourse")
+                        .WithMany("Students")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
