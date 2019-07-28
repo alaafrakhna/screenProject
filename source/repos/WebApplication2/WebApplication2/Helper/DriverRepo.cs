@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,7 +21,25 @@ namespace WebApplication2.Helper
         }
 
 
-   
+
+
+
+        public new Driver get(int id)
+        {
+            Driver driver = _AppContext.Drivers.Include(c => c.MyCar).FirstOrDefault(c => c.Id == id);
+
+            return driver;
+
+
+        }
+
+
+
+        public new List<Driver> getAll()
+        {
+            return _AppContext.Drivers.Include(c => c.MyCar).ToList();
+        }
+
 
     }
 }

@@ -42,30 +42,62 @@ namespace WebApplication2.Controllers
 
         }
 
+
+        // GET: api/<controller>
+        [HttpGet("GetDriverViewModel")]
+        public List<DriverListItem> GetDriverViewModel()
+        {
+
+
+            List<Driver> driverList = _iDriverRepo.getAll();
+            List<DriverListItem> driverviewmodel = _mapper.Map<List<DriverListItem>>(driverList);
+
+            return driverviewmodel;
+
+        }
+
+
         // get api/values/5
         [HttpGet("{id}")]
-        public Driver get(int id)
+        public DriverViewModel get(int id)
         {
-           
-            return _iDriverRepo.get(id);
+            var driver = _iDriverRepo.get(id);
+            var driverVm = _mapper.Map<DriverViewModel>(driver);
+            return driverVm;
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] Driver driver)
+        public DriverViewModel Post([FromBody] DriverViewModel driverVm)
         {
+           
+
+            var driver = _mapper.Map<Driver>(driverVm);
+
             _iDriverRepo.add(driver);
 
+            
+            driverVm = _mapper.Map<DriverViewModel>(driver);
+            return driverVm;
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Driver driver)
+        public DriverViewModel Put(int id, [FromBody] DriverViewModel driverVm)
         {
 
+            
+
+            var driver = _mapper.Map<Driver>(driverVm);
             _iDriverRepo.update(id, driver);
 
+            driverVm = _mapper.Map<DriverViewModel>(driver);
+
+            return driverVm;
+
         }
+
+
 
         // DELETE api/values/5
         [HttpDelete("{id}")]

@@ -37,32 +37,50 @@ namespace WebApplication2.Controllers
             return carviewmodel;
         }
 
+
+
         // get api/values/5
         [HttpGet("{id}")]
-        public Car get(int id)
+        public CarViewModel get(int id)
         {
             
-            return _ICarRepo.get(id);
-
+           var car = _ICarRepo.get(id);
+            var carVm = _mapper.Map<CarViewModel>(car);
+            return carVm;
 
         }
+
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] Car car)
+        public CarViewModel Post([FromBody] CarViewModel carVm)
         {
 
+            var car = _mapper.Map<Car>(carVm);
             _ICarRepo.add(car);
 
+            carVm = _mapper.Map<CarViewModel>(car);
 
+            return carVm;
 
         }
 
+
+       
+
+
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Car car)
+        public CarViewModel Put(int id, [FromBody] CarViewModel carVm)
         {
+
+            var car = _mapper.Map<Car>(carVm);
             _ICarRepo.update(id, car);
+
+            carVm = _mapper.Map<CarViewModel>(car);
+
+            return carVm;
+
 
 
         }
@@ -71,8 +89,7 @@ namespace WebApplication2.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-
-
+            
             _ICarRepo.delete(id);
 
 

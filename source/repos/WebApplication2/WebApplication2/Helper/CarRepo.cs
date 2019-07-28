@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,6 +23,26 @@ namespace WebApplication2.Helper
 
 
 
-       
+
+
+        public new Car get(int id)
+        {
+            Car car = _AppContext.Cars.Include(c => c.Drivers).FirstOrDefault(c => c.Id == id);
+
+            return car;
+
+
+        }
+
+
+
+        public new List<Car> getAll()
+        {
+            return _AppContext.Cars.Include(c => c.Drivers).ToList();
+        }
+
+
+
+
     }
 }
