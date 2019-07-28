@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using testing.Helper;
+using testing.Interface;
 
 namespace testing
 {
@@ -32,7 +34,7 @@ namespace testing
             {
                 builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
-
+            services.AddScoped<IStudentRepo, StudentRepo>();
 
 
         }
