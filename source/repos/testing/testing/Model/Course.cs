@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace testing.Model
 {
-    public class Course
+    public class Course:IBaseModel
     {
 
         public int Id {get; set;}

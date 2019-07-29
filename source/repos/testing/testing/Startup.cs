@@ -35,6 +35,7 @@ namespace testing
                 builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
             services.AddScoped<IStudentRepo, StudentRepo>();
+            services.AddScoped<ICourseRepo, CourseRepo>();
 
 
         }
