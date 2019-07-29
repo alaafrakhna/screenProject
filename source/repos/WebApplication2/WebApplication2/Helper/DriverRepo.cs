@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WebApplication2.Interfaces;
 using WebApplication2.Models;
 
+
 namespace WebApplication2.Helper
 {
     public class DriverRepo: BaseRepo<Driver>, IDriverRepo
@@ -20,16 +21,11 @@ namespace WebApplication2.Helper
 
         }
 
-
-
-
-
         public new Driver get(int id)
         {
             Driver driver = _AppContext.Drivers.Include(c => c.MyCar).FirstOrDefault(c => c.Id == id);
 
             return driver;
-
 
         }
 

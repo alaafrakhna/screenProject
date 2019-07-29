@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace WebApplication2
 {
+  
     public class Program
     {
         public static void Main(string[] args)
@@ -21,4 +22,6 @@ namespace WebApplication2
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
     }
+
+
 }
