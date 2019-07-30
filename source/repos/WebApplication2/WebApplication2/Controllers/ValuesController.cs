@@ -73,6 +73,10 @@ namespace WebApplication2.Controllers
         [HttpPut("{id}")]
         public CarViewModel Put(int id, [FromBody] CarViewModel carVm)
         {
+            if(id == 50)
+            {
+                throw new Exception();
+            }
 
             var car = _mapper.Map<Car>(carVm);
             _ICarRepo.update(id, car);
