@@ -18,6 +18,11 @@ using WebApplication2.Interfaces;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.IO;
+using WebApplication2.Models;
+using Microsoft.AspNetCore.Identity;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace WebApplication2
 {
@@ -79,6 +84,41 @@ namespace WebApplication2
                 c.IncludeXmlComments(xmlPath);
             });
 
+
+            services.AddIdentity<AppUser, AppRole>(options =>
+            {
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+                options.Lockout.MaxFailedAccessAttempts = 3;
+            })
+               .AddEntityFrameworkStores<MyAppContext>()
+               .AddDefaultTokenProviders();
+
+
+
+            // configure jwt authentication
+          //  var appSettings = appSettingsSection.Get<AppSettings>();
+            var key = Encoding.ASCII.GetBytes("alaa");
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
+
+
+            services.AddScoped<AppUserRepo>();
             services.AddScoped<IDriverRepo,DriverRepo>();
 
             services.AddScoped<ICarRepo,CarRepo>();
@@ -102,7 +142,7 @@ namespace WebApplication2
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseMiddleware<CustomMiddleware>();
+          
 
             app.UseHttpsRedirection();
 
@@ -119,18 +159,9 @@ namespace WebApplication2
             });
 
 
-
-
-
-
-
+           // app.UseMiddleware<CustomMiddleware>();
 
             app.UseMvc();
-
-
-
-
-
 
         }
     }
