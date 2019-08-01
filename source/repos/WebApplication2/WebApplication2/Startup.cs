@@ -97,7 +97,7 @@ namespace WebApplication2
 
             // configure jwt authentication
           //  var appSettings = appSettingsSection.Get<AppSettings>();
-            var key = Encoding.ASCII.GetBytes("alaa");
+            var key = Encoding.ASCII.GetBytes("alaaaaaaaaaaaaaaaaaaaaaaaa");
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -112,7 +112,8 @@ namespace WebApplication2
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                     ValidateIssuer = false,
-                    ValidateAudience = false
+                    ValidateAudience = false,
+                    ValidateActor=false
                 };
             });
 
@@ -146,6 +147,7 @@ namespace WebApplication2
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
