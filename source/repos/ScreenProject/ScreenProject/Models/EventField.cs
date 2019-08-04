@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace ScreenProject.Models
 {
-    public class EventField
+    public class EventField:IBaseModel
     {
         public int Id { get; set; }
-        public int EventId { get; set; }
+        public int ? EventId  { get; set; }
         public string Value { get; set; }
         public int TemplateFieldId { get; set; }
 

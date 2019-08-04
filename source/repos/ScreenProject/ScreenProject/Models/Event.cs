@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ScreenProject.Models
 {
-    public class Event
+    public class Event: IBaseModel
     {
 
         public int Id { get; set; }

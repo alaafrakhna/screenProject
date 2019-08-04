@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ScreenProject.Interfaces;
+using ScreenProject.Repository;
 
 namespace ScreenProject
 {
@@ -42,6 +44,26 @@ namespace ScreenProject
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+
+
+
+
+
+           
+            services.AddScoped<IEventFieldRepo, EventFieldRepo>();
+
+            services.AddScoped<ITemplateFieldRepo, TemplateFieldRepo>();
+
+            services.AddScoped<ITemplateRepo, TemplateRepo>();
+
+            services.AddScoped<IEmployeeRepo, EmployeeRepo>();
+
+            services.AddScoped<IEventRepo, EventRepo>();
+       
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
