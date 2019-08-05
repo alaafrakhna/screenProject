@@ -1,7 +1,12 @@
-<h1>Counter</h1>
+<div class="grid-container" style="height: calc(100vh )">
 
-<p>This is a simple example of an Angular component.</p>
+  <div style="width: 543px; height: 314px; " class="container" *ngFor="let item of events" [style.background]="'url('+item.myTemplate.backGroundImg+')'">
 
-<p>Current count: <strong>{{ currentCount }}</strong></p>
+    <div *ngFor="let eventfield of item.eventFields" [style.font-size.px]="eventfield.myTemplateField.fontSize" [style.color]="eventfield.myTemplateField.fontColor" [style.font-family]="eventfield.myTemplateField.fontFamily" [style.margin-left.px]="eventfield.myTemplateField.leftPosition" [style.margin-top.px]="eventfield.myTemplateField.topPosition" [style.font-style]="eventfield.myTemplateField.fontStyle" [style.font-weight]="eventfield.myTemplateField.fontWeight" class="event-field-demo">{{ eventfield.value }}</div>
 
-<button class="btn btn-primary" (click)="incrementCounter()">Increment</button>
+
+  </div>
+
+
+
+</div>
