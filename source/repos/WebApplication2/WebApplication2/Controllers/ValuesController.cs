@@ -14,7 +14,7 @@ namespace WebApplication2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class ValuesController : ControllerBase
     {
 
@@ -33,6 +33,9 @@ namespace WebApplication2.Controllers
         [HttpGet]
         public List<CarViewModel> Get()
         {
+
+            Console.Write(DateTime.UtcNow.Date);
+
             List < Car > carList = _ICarRepo.getAll();
             List<CarViewModel> carviewmodel = _mapper.Map<List<CarViewModel>>(carList);
 

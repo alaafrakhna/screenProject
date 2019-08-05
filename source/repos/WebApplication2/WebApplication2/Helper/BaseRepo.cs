@@ -25,6 +25,8 @@ namespace WebApplication2.Helper
 
         public List<T> getAll()
         {
+
+           
             return _AppContext.Set<T>().ToList();
         }
 
