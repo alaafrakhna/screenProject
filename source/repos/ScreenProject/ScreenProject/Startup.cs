@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ScreenProject.Interfaces;
 using ScreenProject.Repository;
+using System;
 
 namespace ScreenProject
 {
@@ -60,7 +62,9 @@ namespace ScreenProject
             services.AddScoped<IEmployeeRepo, EmployeeRepo>();
 
             services.AddScoped<IEventRepo, EventRepo>();
-       
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
 
 
