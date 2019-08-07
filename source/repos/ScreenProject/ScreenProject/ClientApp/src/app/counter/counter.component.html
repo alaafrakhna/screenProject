@@ -1,6 +1,6 @@
 
 
-  <div style="width: 100%; height: calc(100vh ); background-size:100% 100%; " class="container  grid-container" *ngFor="let item of events" [style.background]="'url('+item.myTemplate.backGroundImg+')'">
+  <div style="width: calc(100vw ); height: calc(100vh ); background-size:100% 100%; " class="container  grid-container" *ngFor="let item of events" [style.background]="'url('+item.myTemplate.backGroundImg+')'">
 
     <div   style="position:absolute" *ngFor="let eventfield of item.eventFields" [style.font-size.px]="eventfield.myTemplateField.fontSize" [style.color]="eventfield.myTemplateField.fontColor" [style.font-family]="eventfield.myTemplateField.fontFamily" [style.margin-left.px]="eventfield.myTemplateField.leftPosition" [style.margin-top.px]="eventfield.myTemplateField.topPosition" [style.font-style]="eventfield.myTemplateField.fontStyle" [style.font-weight]="eventfield.myTemplateField.fontWeight" class="event-field-demo">{{ eventfield.value }}</div>
 
