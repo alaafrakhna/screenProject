@@ -1,0 +1,16 @@
+
+
+<div style="height: calc(100vh) ; width: calc(100vw)">
+  <div style="height: calc(100vh ) ; width:100% " class="con" [style.background]="'url('+selectedbackground+')'">
+    <div *ngIf="evn">
+      <div style="position:absolute" *ngFor="let eventfield of evn.eventFields" [style.font-size.px]="eventfield.myTemplateField.fontSize"
+           [style.color]="eventfield.myTemplateField.fontColor" [style.font-family]="eventfield.myTemplateField.fontFamily"
+           [style.left.px]="eventfield.myTemplateField.leftPosition" [style.top.%]="eventfield.myTemplateField.topPosition"
+           [style.font-style]="eventfield.myTemplateField.fontStyle" [style.font-weight]="eventfield.myTemplateField.fontWeight"
+           class="event-field-demo">{{ eventfield.value }}</div>
+
+    </div>
+
+  </div>
+</div>
+
