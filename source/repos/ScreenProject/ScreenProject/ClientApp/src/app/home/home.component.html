@@ -1,6 +1,6 @@
-<div class="con" style="background-size:100% 100%" *ngFor="let item of events" [style.background]="'url('+item.myTemplate.backGroundImg+')'">
+<div class="con" style="background-size:100% 100%"  [style.background]="'url('+evn.myTemplate.backGroundImg+')'">
 
-  <div style="position:absolute" *ngFor="let eventfield of item.eventFields" [style.font-size.px]="eventfield.myTemplateField.fontSize" [style.color]="eventfield.myTemplateField.fontColor" [style.font-family]="eventfield.myTemplateField.fontFamily" [style.margin-left.px]="eventfield.myTemplateField.leftPosition" [style.margin-top.px]="eventfield.myTemplateField.topPosition" [style.font-style]="eventfield.myTemplateField.fontStyle" [style.font-weight]="eventfield.myTemplateField.fontWeight" class="event-field-demo">{{ eventfield.value }}</div>
+  <div style="position:absolute" *ngFor="let eventfield of evn.eventFields" [style.font-size.px]="eventfield.myTemplateField.fontSize" [style.color]="eventfield.myTemplateField.fontColor" [style.font-family]="eventfield.myTemplateField.fontFamily" [style.margin-left.px]="eventfield.myTemplateField.leftPosition" [style.margin-top.px]="eventfield.myTemplateField.topPosition" [style.font-style]="eventfield.myTemplateField.fontStyle" [style.font-weight]="eventfield.myTemplateField.fontWeight" class="event-field-demo">{{ eventfield.value }}</div>
 
 
 </div>
